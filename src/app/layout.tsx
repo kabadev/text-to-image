@@ -10,7 +10,7 @@ const poppins = Poppins({
 	subsets: ["latin"],
 });
 export const metadata: Metadata = {
-	title: "Sbi text to image",
+	title: "Sabi text to image",
 	description:
 		"AI-powered text-to-image generation tool using fal ai. Transform words into vibrant visuals effortlessly.",
 };
