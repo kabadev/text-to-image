@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tailwind CSS Layout</title>
+		<link
+			href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="h-screen flex">
+		<div class="fixed w-64 h-screen bg-gray-700 text-white p-4"></div>
+
+		<div class="flex-grow bg-gray-100 p-4">
+			<div class="h-full overflow-hidden">
+				<div class="h-80 bg-white p-4 overflow-y-scroll"></div>
+
+				<div class="h-20 bg-gray-200 p-4">
+					<textarea
+						class="w-full h-full resize-none bg-gray-200 overflow-hidden"
+					></textarea>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			const textarea = document.querySelector("textarea");
+			textarea.addEventListener("input", () => {
+				const height = textarea.scrollHeight;
+				textarea.style.height = Math.max(height, 20) + "px";
+				textarea.parentNode.style.height = Math.max(height + 20, 100) + "px";
+			});
+		</script>
+
+		<div class="overflow-hidden transition-all max-sm:p-2">
+			<div>
+				<div class="text-sm overflow-hidden leading-7">
+					<p>
+						Answer: The useEffect hook in ReactJS is used to perform side
+						effects in functional components. It takes in two parameters: a
+						function and an optional array of dependencies. The function passed
+						in as the first parameter will be executed after every render,
+						unless the dependencies in the second parameter have not changed
+						since the previous render. This allows for efficient and controlled
+						execution of side effects.
+					</p>
+					<p>Example:</p>
+					<div class="overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+						<pre><div class="bg-accent"><pre node="[object Object]" class="!bg-accent p-4 rounded-2xl dark:!text-white dark:!bg-accent/30" style="display: block; overflow-x: auto; padding: 0.5em; color: rgb(0, 0, 0); background: rgb(248, 248, 255);"><code style="white-space: pre;"><span style="color: rgb(149, 65, 33);">import</span><span> React, { useEffect, useState } </span><span style="color: rgb(149, 65, 33);">from</span><span> </span><span style="color: rgb(33, 145, 97);">'react'</span><span>;
+  </span>
+  <span></span><span style="color: rgb(149, 65, 33);">const</span><span> ExampleComponent = </span><span class="hljs-function">() =&gt;</span><span> {
+  </span><span>  </span><span style="color: rgb(149, 65, 33);">const</span><span> [count, setCount] = useState(</span><span style="color: rgb(64, 160, 112);">0</span><span>);
+  </span>
+  <span>  useEffect(</span><span class="hljs-function">() =&gt;</span><span> {
+  </span><span>    </span><span style="color: rgb(64, 128, 128); font-style: italic;">// This function will be executed after every render</span><span>
+  </span><span>    </span><span style="color: rgb(0, 134, 179);">console</span><span>.log(</span><span style="color: rgb(33, 145, 97);">'Count has been updated'</span><span>);
+  </span><span>  }, [count]); </span><span style="color: rgb(64, 128, 128); font-style: italic;">// Only re-run the effect if count changes</span><span>
+  </span>
+  <span>  </span><span style="color: rgb(149, 65, 33);">const</span><span> handleIncrement = </span><span class="hljs-function">() =&gt;</span><span> {
+  </span><span>    setCount(count + </span><span style="color: rgb(64, 160, 112);">1</span><span>);
+  </span>  };
+  
+  <span>  </span><span style="color: rgb(149, 65, 33);">return</span><span> (
+  </span><span>    </span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">div</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span class="xml">
+  </span><span class="xml">      </span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">p</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span class="xml">Count: {count}</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;/</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">p</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span class="xml">
+  </span><span class="xml">      </span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">button</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;"> </span><span class="xml hljs-attr" style="color: rgb(0, 0, 128); font-weight: normal;">onClick</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">=</span><span class="xml" style="color: rgb(33, 145, 97); font-weight: normal;">{handleIncrement}</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span class="xml">Increment</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;/</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">button</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span class="xml">
+  </span><span class="xml">    </span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&lt;/</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">div</span><span class="xml" style="color: rgb(0, 0, 128); font-weight: normal;">&gt;</span><span>
+  </span>  );
+  };
+  </code></pre></div></pre>
+					</div>
+					<p>
+						In this example, the useEffect hook is used to log a message to the
+						console every time the count state changes. This ensures that the
+						side effect is only executed when necessary, preventing unnecessary
+						re-renders.
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
